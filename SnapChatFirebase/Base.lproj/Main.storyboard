@@ -87,6 +87,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yJ6-Uj-Y0Y" secondAttribute="bottom" constant="334" id="vba-dz-qgC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2aG-ZZ-HZe"/>
                     <connections>
                         <outlet property="emailText" destination="HMf-qK-ffW" id="wbN-3o-D1J"/>
                         <outlet property="passwordText" destination="aB1-bQ-F8s" id="1OZ-HS-bm5"/>
@@ -106,8 +107,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsJ-Fd-goi">
-                                <rect key="frame" x="38" y="126" width="339" height="350"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="gsJ-Fd-goi">
+                                <rect key="frame" x="38" y="126" width="339" height="392"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhq-OA-tIA">
                                 <rect key="frame" x="110" y="572" width="194" height="81"/>
@@ -129,7 +130,7 @@
                             <constraint firstItem="gsJ-Fd-goi" firstAttribute="centerX" secondItem="Vhq-OA-tIA" secondAttribute="centerX" id="Iqf-ir-bgU"/>
                             <constraint firstItem="QGL-s7-KU5" firstAttribute="bottom" secondItem="Vhq-OA-tIA" secondAttribute="bottom" constant="160" id="epw-qu-yzS"/>
                             <constraint firstItem="gsJ-Fd-goi" firstAttribute="leading" secondItem="QGL-s7-KU5" secondAttribute="leading" constant="38" id="tVn-FX-33P"/>
-                            <constraint firstItem="Vhq-OA-tIA" firstAttribute="top" secondItem="gsJ-Fd-goi" secondAttribute="bottom" constant="96" id="vGI-Uw-BPZ"/>
+                            <constraint firstItem="Vhq-OA-tIA" firstAttribute="top" secondItem="gsJ-Fd-goi" secondAttribute="bottom" constant="54" id="vGI-Uw-BPZ"/>
                             <constraint firstItem="Vhq-OA-tIA" firstAttribute="leading" secondItem="QGL-s7-KU5" secondAttribute="leading" constant="110" id="xyg-BU-b0T"/>
                         </constraints>
                     </view>
@@ -169,6 +170,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="s.circle.fill" catalog="system" id="PfC-u7-Qcs"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="ash-0r-Jaf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHt-yC-rxs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,7 +246,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="uNc-0B-989">
             <objects>
-                <tabBarController id="3A4-5Y-ey3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="3A4-5Y-ey3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wWU-J3-5OQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -262,6 +266,7 @@
     <resources>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="select" width="318" height="334"/>
         <image name="u.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

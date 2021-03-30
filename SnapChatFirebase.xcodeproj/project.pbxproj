@@ -18,6 +18,7 @@
 		7CF406A826112A30005077EE /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF406A726112A30005077EE /* UploadVC.swift */; };
 		7CF406AB26112A47005077EE /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF406AA26112A47005077EE /* SettingsVC.swift */; };
 		7CF406B026112E30005077EE /* SnapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF406AF26112E30005077EE /* SnapVC.swift */; };
+		7CF406B4261276EB005077EE /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF406B3261276EB005077EE /* UserSingleton.swift */; };
 		A0967F5DBA5E0B5BBCB87A40 /* Pods_SnapChatFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C942F5B3E42D13249B9C7C8 /* Pods_SnapChatFirebase.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7CF406A726112A30005077EE /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		7CF406AA26112A47005077EE /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7CF406AF26112E30005077EE /* SnapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapVC.swift; sourceTree = "<group>"; };
+		7CF406B3261276EB005077EE /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		C1E861B6CC16FA8452092C29 /* Pods-SnapChatFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapChatFirebase.release.xcconfig"; path = "Target Support Files/Pods-SnapChatFirebase/Pods-SnapChatFirebase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		7CF406742611204B005077EE /* SnapChatFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				7CF406B226127681005077EE /* Model */,
 				7CF406AD26112A88005077EE /* viewControllers */,
 				7CF406752611204B005077EE /* AppDelegate.swift */,
 				7CF406772611204B005077EE /* SceneDelegate.swift */,
@@ -112,6 +115,14 @@
 				7CF406AF26112E30005077EE /* SnapVC.swift */,
 			);
 			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		7CF406B226127681005077EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CF406B3261276EB005077EE /* UserSingleton.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF406B4261276EB005077EE /* UserSingleton.swift in Sources */,
 				7CF406A526112A17005077EE /* FeedVC.swift in Sources */,
 				7CF4067A2611204B005077EE /* SignInVC.swift in Sources */,
 				7CF406762611204B005077EE /* AppDelegate.swift in Sources */,
