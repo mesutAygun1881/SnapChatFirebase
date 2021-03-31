@@ -189,15 +189,58 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zny-cs-Ou7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="644" id="221-Wd-HRN" customClass="FeedCell" customModule="SnapChatFirebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="644"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="221-Wd-HRN" id="j1T-24-gpx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="644"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oda-Ir-9Cb">
+                                                    <rect key="frame" x="53" y="36" width="314" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="314" id="MFF-go-zJi"/>
+                                                        <constraint firstAttribute="height" constant="52" id="Xm2-OD-e9i"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsh-eF-ZGa">
+                                                    <rect key="frame" x="20" y="119" width="374" height="466"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="466" id="6nf-oQ-eFG"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="466" id="Sez-AW-C3y"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="fka-2D-uIP"/>
+                                                        <constraint firstAttribute="width" constant="374" id="ilc-uz-9zT"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="466" id="jDO-5p-fJd"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Oda-Ir-9Cb" firstAttribute="leading" secondItem="j1T-24-gpx" secondAttribute="leadingMargin" constant="33" id="3tA-x2-t3s"/>
+                                                <constraint firstItem="fsh-eF-ZGa" firstAttribute="top" secondItem="Oda-Ir-9Cb" secondAttribute="bottom" constant="31" id="Ssl-1e-oKq"/>
+                                                <constraint firstItem="Oda-Ir-9Cb" firstAttribute="leading" secondItem="fsh-eF-ZGa" secondAttribute="leading" constant="33" id="Wcb-1l-4hI"/>
+                                                <constraint firstItem="Oda-Ir-9Cb" firstAttribute="trailing" secondItem="fsh-eF-ZGa" secondAttribute="trailing" constant="-27" id="ayP-uZ-brk"/>
+                                                <constraint firstItem="Oda-Ir-9Cb" firstAttribute="top" secondItem="j1T-24-gpx" secondAttribute="topMargin" constant="25" id="qc9-dX-PaQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="feedImageView" destination="fsh-eF-ZGa" id="yD4-PX-GaH"/>
+                                            <outlet property="feedUsernameLabel" destination="Oda-Ir-9Cb" id="2gr-XP-FLL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6ph-tp-ibn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zny-cs-Ou7" firstAttribute="top" secondItem="6ph-tp-ibn" secondAttribute="top" id="5c8-ta-CCR"/>
-                            <constraint firstItem="6ph-tp-ibn" firstAttribute="bottom" secondItem="zny-cs-Ou7" secondAttribute="bottom" id="RTG-AR-EM9"/>
-                            <constraint firstItem="zny-cs-Ou7" firstAttribute="leading" secondItem="6ph-tp-ibn" secondAttribute="leading" id="ds6-rp-uBi"/>
-                            <constraint firstItem="6ph-tp-ibn" firstAttribute="trailing" secondItem="zny-cs-Ou7" secondAttribute="trailing" id="h2A-mV-amI"/>
+                            <constraint firstItem="zny-cs-Ou7" firstAttribute="centerX" secondItem="hZh-1l-dGP" secondAttribute="centerX" id="Weh-6G-BCI"/>
+                            <constraint firstItem="zny-cs-Ou7" firstAttribute="top" secondItem="6ph-tp-ibn" secondAttribute="top" id="ne9-Qa-A3U"/>
+                            <constraint firstItem="zny-cs-Ou7" firstAttribute="leading" secondItem="6ph-tp-ibn" secondAttribute="leading" id="pXH-Mc-f2J"/>
+                            <constraint firstItem="zny-cs-Ou7" firstAttribute="bottom" secondItem="6ph-tp-ibn" secondAttribute="bottom" id="xkq-OI-e9J"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="f.circle.fill" catalog="system" id="MLY-eI-HSQ"/>
@@ -208,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4T-ym-tnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="-160"/>
+            <point key="canvasLocation" x="1853.6231884057972" y="-160.04464285714286"/>
         </scene>
         <!--SnapVC-->
         <scene sceneID="kOj-UW-9hQ">

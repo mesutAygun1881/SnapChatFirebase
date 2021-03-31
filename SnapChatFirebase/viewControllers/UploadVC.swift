@@ -20,7 +20,7 @@ class UploadVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
     }
     
     @IBAction func uploadClicked(_ sender: Any) {
-        
+        //storage
         let storage = Storage.storage()
         let storageReference = storage.reference()
         let mediaFolder = storageReference.child("media")
@@ -37,18 +37,45 @@ class UploadVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
                         if error == nil {
                             let imageUrl = url?.absoluteString
                             
+                            //firestore
+                            
                             let fireStore = Firestore.firestore()
-                            
-                            let snapDictionary = ["imageUrl" : imageUrl! , "snapOwner" : UserSingleton.sharedUserInfo.username , "data":FieldValue.serverTimestamp()] as [String : Any]
-                            
-                            fireStore.collection("Snaps").addDocument(data: snapDictionary) { (error) in
+                            fireStore.collection("Snaps").whereField("snapOwner", isEqualTo: UserSingleton.sharedUserInfo.username).getDocuments { (snapshot, error) in
                                 if error != nil {
-                                    self.makeAlert(titleInput: "error", messageInput: error?.localizedDescription ?? "error")
-                                    
-                                }else {
-                                    self.tabBarController?.selectedIndex = 0
-                                    self.uploadImageView.image = UIImage(named: "select.jpeg")
+                                    self.makeAlert(titleInput: "ERROR", messageInput: error?.localizedDescription ?? "error")
+                                }else{
+                                    if snapshot?.isEmpty == false && snapshot != nil {
+                                        for document in snapshot!.documents {
+                                            let documentId = document.documentID
+                                            if var imageUrlArray = document.get("imageUrlArray") as? [String] {
+                                                imageUrlArray.append(imageUrl!)
+                                                let additionalDictionary = ["imageUrlArray" : imageUrlArray] as [String : Any]
+                                                fireStore.collection("Snaps").document(documentId).setData(additionalDictionary,merge: true) { (error) in
+                                                    if error == nil {
+                                                        self.tabBarController?.selectedIndex = 0
+                                                        self.uploadImageView.image = UIImage(named: "select.jpeg")
+                                                    }
+                                                }
+                                            }
+                                            
+                                            
+                                        }
+                                    } else {
+                                        let snapDictionary = ["imageUrlArray" : [imageUrl!] , "snapOwner" : UserSingleton.sharedUserInfo.username , "data":FieldValue.serverTimestamp()] as [String : Any]
+                                        
+                                        fireStore.collection("Snaps").addDocument(data: snapDictionary) { (error) in
+                                            if error != nil {
+                                                self.makeAlert(titleInput: "error", messageInput: error?.localizedDescription ?? "error")
+                                                
+                                            }else {
+                                                self.tabBarController?.selectedIndex = 0
+                                                self.uploadImageView.image = UIImage(named: "select.jpeg")
+                                            }
+                                        
+                                    }
                                 }
+                            }
+                          
                             }
                         }
                     }
