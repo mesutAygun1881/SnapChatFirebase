@@ -42,9 +42,16 @@ class FeedVC: UIViewController  , UITableViewDelegate , UITableViewDataSource {
                 if snapshot?.isEmpty == false && snapshot != nil {
                     self.snapArray.removeAll(keepingCapacity: false)
                     for document in snapshot!.documents {
+                        let documentId = document.documentID
                         if let username = document.get("snapOwner") as? String {
                             if let imageUrlArray = document.get("imageUrlArray") as? [String] {
                                 if let date = document.get("date") as? Timestamp {
+                                    if let difference = Calendar.current.dateComponents([.hour], from: date.dateValue() , to : Date()).hour {
+                                        self.fireStoreDatabase.collection("Snaps").document(documentId).delete()  { (error) in
+                                            
+                                            
+                                        }
+                                    }
                                     let snap = Snap(username: username, imageUrlArray: imageUrlArray, date: date.dateValue())
                                     self.snapArray.append(snap)
                                 }

@@ -61,7 +61,7 @@ class UploadVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
                                             
                                         }
                                     } else {
-                                        let snapDictionary = ["imageUrlArray" : [imageUrl!] , "snapOwner" : UserSingleton.sharedUserInfo.username , "data":FieldValue.serverTimestamp()] as [String : Any]
+                                        let snapDictionary = ["imageUrlArray" : [imageUrl!] , "snapOwner" : UserSingleton.sharedUserInfo.username , "date":FieldValue.serverTimestamp()] as [String : Any]
                                         
                                         fireStore.collection("Snaps").addDocument(data: snapDictionary) { (error) in
                                             if error != nil {
