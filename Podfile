@@ -10,7 +10,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
-
+pod 'SDWebImage'
   # Pods for SnapChatFirebase
 
 end
